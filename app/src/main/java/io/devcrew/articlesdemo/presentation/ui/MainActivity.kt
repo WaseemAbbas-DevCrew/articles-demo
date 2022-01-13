@@ -1,12 +1,18 @@
 package io.devcrew.articlesdemo.presentation.ui
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import io.devcrew.articlesdemo.R
+import dagger.hilt.android.AndroidEntryPoint
+import io.devcrew.articlesdemo.databinding.ActivityMainBinding
+import io.devcrew.articlesdemo.presentation.base.BaseActivity
 
-class MainActivity : AppCompatActivity() {
+@AndroidEntryPoint
+class MainActivity : BaseActivity() {
+    private val binding: ActivityMainBinding by lazy {
+        ActivityMainBinding.inflate(layoutInflater)
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(binding.root)
     }
 }

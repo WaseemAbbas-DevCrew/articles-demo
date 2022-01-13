@@ -4,8 +4,9 @@ import io.devcrew.articlesdemo.data.remote.ArticleService
 import io.devcrew.articlesdemo.domain.entity.Article
 import io.devcrew.articlesdemo.domain.entity.Result
 import io.devcrew.articlesdemo.domain.repo.ArticleRepository
+import javax.inject.Inject
 
-class ArticleRepositoryImpl(
+class ArticleRepositoryImpl @Inject constructor(
     private val articleService: ArticleService
 ) : ArticleRepository {
     override suspend fun getPopularArticles(period: Int): Result<List<Article>> {

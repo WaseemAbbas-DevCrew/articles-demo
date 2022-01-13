@@ -6,6 +6,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.recyclerview.widget.RecyclerView
 import com.devcrew.baseproject.presentation.core.adapter.OnListItemClickListener
+import io.devcrew.articlesdemo.BR
 import io.devcrew.articlesdemo.presentation.core.adapter.OnItemViewClickListener
 
 abstract class BaseRecyclerViewAdapter<T>(private val items: List<T>) :
@@ -40,7 +41,7 @@ abstract class BaseRecyclerViewAdapter<T>(private val items: List<T>) :
 
 open class BaseViewHolder(val binding: ViewDataBinding) : RecyclerView.ViewHolder(binding.root) {
     open fun <T> bind(obj: T) {
-//        binding.setVariable(BR.obj, obj)
+        binding.setVariable(BR.obj, obj)
         binding.executePendingBindings()
     }
 }

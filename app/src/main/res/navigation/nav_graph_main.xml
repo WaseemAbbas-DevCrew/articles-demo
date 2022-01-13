@@ -18,5 +18,9 @@
         android:id="@+id/dest_article_detail"
         android:name="io.devcrew.articlesdemo.presentation.ui.article.ArticleDetailFragment"
         android:label="article_detail_fragment"
-        tools:layout="@layout/article_detail_fragment" />
+        tools:layout="@layout/article_detail_fragment" >
+        <argument
+            android:name="article"
+            app:argType="io.devcrew.articlesdemo.domain.entity.Article" />
+    </fragment>
 </navigation>

@@ -2,6 +2,7 @@ package io.devcrew.articlesdemo.domain.entity
 
 
 import com.google.gson.annotations.SerializedName
+import java.io.Serializable
 
 data class MediaMetadata(
     @SerializedName("format")
@@ -12,4 +13,4 @@ data class MediaMetadata(
     val url: String = "",
     @SerializedName("width")
     val width: Int = 0
-)
+): Serializable

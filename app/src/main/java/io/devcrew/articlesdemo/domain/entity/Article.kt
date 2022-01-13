@@ -2,6 +2,8 @@ package io.devcrew.articlesdemo.domain.entity
 
 
 import com.google.gson.annotations.SerializedName
+import io.devcrew.articlesdemo.presentation.core.utils.PLACEHOLDER_IMG
+import java.io.Serializable
 
 data class Article(
     @SerializedName("abstract")
@@ -48,4 +50,10 @@ data class Article(
     val uri: String = "",
     @SerializedName("url")
     val url: String = ""
-)
+): Serializable {
+    val img75x75: String get() {
+        if (media.isEmpty()) return PLACEHOLDER_IMG
+        if (media[0].mediaMetadata.isEmpty()) return PLACEHOLDER_IMG
+        return media[0].mediaMetadata[0].url
+    }
+}

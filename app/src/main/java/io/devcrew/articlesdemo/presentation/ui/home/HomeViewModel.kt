@@ -30,7 +30,7 @@ class HomeViewModel @Inject constructor(
         viewModelScope.launch {
             //right now we are using a static value 7, but can be changed any time
             when(val result = articleRepository.getPopularArticles(7)) {
-                is Result.Success -> _articles.postValue(_articles.value)
+                is Result.Success -> _articles.postValue(result.value)
                 is Result.Failure -> {
                     //TODO(handle error message here)
                     print(result.throwable.message)

@@ -2,6 +2,7 @@ package io.devcrew.articlesdemo.domain.entity
 
 
 import com.google.gson.annotations.SerializedName
+import java.io.Serializable
 
 data class Media(
     @SerializedName("approved_for_syndication")
@@ -16,4 +17,4 @@ data class Media(
     val subtype: String = "",
     @SerializedName("type")
     val type: String = ""
-)
+): Serializable

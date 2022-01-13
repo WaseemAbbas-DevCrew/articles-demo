@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="article_thumbnail_size">50dp</dimen>
+
+    <dimen name="spacing_16_dp">16dp</dimen>
+    <dimen name="spacing_8_dp">8dp</dimen>
+</resources>

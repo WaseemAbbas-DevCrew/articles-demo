@@ -1,12 +1,14 @@
 package io.devcrew.articlesdemo.presentation.core.utils
 
 import android.graphics.drawable.Drawable
+import android.view.View
 import android.widget.ImageView
 import androidx.databinding.BindingAdapter
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import coil.transform.CircleCropTransformation
-import com.devcrew.baseproject.presentation.core.adapter.OnListItemClickListener
+import io.devcrew.articlesdemo.presentation.core.adapter.OnListItemClickListener
 import io.devcrew.articlesdemo.presentation.core.adapter.GenericRecyclerViewAdapter
 import io.devcrew.articlesdemo.presentation.core.adapter.OnItemViewClickListener
 
@@ -33,4 +35,11 @@ fun <T> setItems(
     mAdapter.setItemClickListener(itemClickListener)
     mAdapter.itemViewClickListener = itemViewClick
     view.setHasFixedSize(hasFixSize)
+}
+
+@BindingAdapter("navigation")
+fun navigateBack(view: View, navigation: Boolean) {
+    view.setOnClickListener {
+        view.findNavController().popBackStack()
+    }
 }

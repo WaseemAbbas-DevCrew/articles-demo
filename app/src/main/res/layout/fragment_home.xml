@@ -8,6 +8,9 @@
         <variable
             name="viewModel"
             type="io.devcrew.articlesdemo.presentation.ui.home.HomeViewModel" />
+        <variable
+            name="articleItemClickListener"
+            type="io.devcrew.articlesdemo.presentation.ui.home.HomeFragment.OnArticleItemClickListener" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -19,7 +22,8 @@
             android:layout_height="match_parent"
             tools:listitem="@layout/item_articles_list"
             app:itemLayout="@{@layout/item_articles_list}"
-            itemsList="@{viewModel.articles}"
+            app:itemsList="@{viewModel.articles}"
+            app:itemClickListener="@{articleItemClickListener}"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager">
 
         </androidx.recyclerview.widget.RecyclerView>

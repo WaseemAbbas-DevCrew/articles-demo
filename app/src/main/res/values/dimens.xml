@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="article_thumbnail_size">50dp</dimen>
+    <dimen name="news_drop_cap_height">300dp</dimen>
 
-    <dimen name="spacing_16_dp">16dp</dimen>
     <dimen name="spacing_8_dp">8dp</dimen>
+    <dimen name="spacing_10_dp">10dp</dimen>
+    <dimen name="spacing_16_dp">16dp</dimen>
 </resources>

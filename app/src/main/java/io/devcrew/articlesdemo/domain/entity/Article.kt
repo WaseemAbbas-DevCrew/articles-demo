@@ -56,4 +56,10 @@ data class Article(
         if (media[0].mediaMetadata.isEmpty()) return PLACEHOLDER_IMG
         return media[0].mediaMetadata[0].url
     }
+    val img293x440: String get() {
+        if (media.isEmpty()) return PLACEHOLDER_IMG
+        if (media[0].mediaMetadata.isEmpty()) return PLACEHOLDER_IMG
+        return media[0].mediaMetadata[2].url
+    }
+
 }

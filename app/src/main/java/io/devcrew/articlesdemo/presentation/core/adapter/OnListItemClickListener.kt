@@ -1,4 +1,4 @@
-package com.devcrew.baseproject.presentation.core.adapter
+package io.devcrew.articlesdemo.presentation.core.adapter
 
 import android.view.View
 

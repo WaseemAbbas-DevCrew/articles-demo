@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".presentation.ui.article.ArticleDetailFragment">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="io.devcrew.articlesdemo.presentation.ui.article.ArticleDetailViewModel" />
+    </data>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:fitsSystemWindows="true"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/backdrop"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/news_drop_cap_height"
+                android:scaleType="centerCrop"
+                android:transitionName="img"
+                app:imageUrl="@{viewModel.article.img293x440}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:src="@tools:sample/backgrounds/scenic" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:background="#4A070707"
+                app:layout_constraintTop_toTopOf="@id/backdrop"
+                app:layout_constraintBottom_toBottomOf="@id/backdrop"
+                app:layout_constraintStart_toStartOf="@id/backdrop"
+                app:layout_constraintEnd_toEndOf="@id/backdrop" />
+
+            <TextView
+                style="@style/TextAppearance.MaterialComponents.Subtitle2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/spacing_16_dp"
+                android:layout_marginBottom="@dimen/spacing_8_dp"
+                android:background="@drawable/bg_label"
+                android:textColor="@color/white"
+                android:text="@string/label_article"
+                app:layout_constraintBottom_toTopOf="@id/txt_title"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <TextView
+                android:id="@+id/txt_title"
+                style="@style/TextAppearance.MaterialComponents.Headline6"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:maxLines="3"
+                android:text="@{viewModel.article.title}"
+                android:textColor="@color/white"
+                app:layout_constraintBottom_toTopOf="@id/txt_byline"
+                app:layout_constraintEnd_toEndOf="@id/txt_byline"
+                app:layout_constraintStart_toStartOf="@id/txt_byline"
+                tools:text="@tools:sample/lorem/random" />
+
+            <TextView
+                android:id="@+id/txt_byline"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/spacing_16_dp"
+                android:layout_marginBottom="@dimen/spacing_16_dp"
+                android:maxLines="2"
+                android:text="@{viewModel.article.byline}"
+                android:textColor="@color/white"
+                app:layout_constraintBottom_toTopOf="@id/rounded_view"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:text="@tools:sample/lorem/random" />
+
+            <View
+                android:id="@+id/rounded_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/rect_top_rounded"
+                app:layout_constraintBottom_toBottomOf="@id/backdrop" />
+
+            <ImageView
+                android:id="@+id/ic_arrow_back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/spacing_10_dp"
+                android:src="@drawable/ic_baseline_arrow_back_24"
+                app:navigation="@{true}"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:tint="@color/white" />
+
+            <TextView
+                android:id="@+id/txt_source"
+                style="@style/TextAppearance.MaterialComponents.Body2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{viewModel.article.source}"
+                app:layout_constraintStart_toStartOf="@id/txt_byline"
+                app:layout_constraintTop_toBottomOf="@id/rounded_view"
+                tools:text="New York Times" />
+
+            <TextView
+                android:id="@+id/txt_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawablePadding="@dimen/spacing_8_dp"
+                android:text="@{viewModel.article.publishedDate}"
+                app:drawableStartCompat="@drawable/ic_calendar_today_24"
+                app:layout_constraintEnd_toEndOf="@id/txt_byline"
+                app:layout_constraintTop_toTopOf="@id/txt_source"
+                tools:text="2017-08-12" />
+
+            <TextView
+                android:id="@+id/label_abstract"
+                style="@style/TextAppearance.MaterialComponents.Subtitle1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_16_dp"
+                android:text="@string/label_abstract"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@id/txt_source"
+                app:layout_constraintTop_toBottomOf="@id/txt_source" />
+
+            <TextView
+                android:id="@+id/txt_abstract"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_8_dp"
+                android:text="@{viewModel.article.abstract}"
+                app:layout_constraintEnd_toEndOf="@id/txt_date"
+                app:layout_constraintStart_toStartOf="@id/label_abstract"
+                app:layout_constraintTop_toBottomOf="@id/label_abstract"
+                tools:maxLines="3"
+                tools:text="@tools:sample/lorem/random" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@{viewModel.article.adxKeywords}"
+                android:layout_marginTop="@dimen/spacing_16_dp"
+                app:layout_constraintTop_toBottomOf="@id/txt_abstract"
+                app:layout_constraintStart_toStartOf="@id/txt_abstract"
+                app:layout_constraintEnd_toEndOf="@id/txt_abstract"
+                tools:maxLines="2"
+                tools:text="@tools:sample/lorem/random"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</layout>

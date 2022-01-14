@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Articles Demo</string>
+    <string name="label_article">Article</string>
+    <string name="label_abstract">Abstract</string>
 </resources>
